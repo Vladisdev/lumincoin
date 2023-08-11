@@ -1,0 +1,17 @@
+// font-size, padding
+@mixin btnStyle($fz, $padding) {
+  font-size: $fz;
+
+  padding: $padding;
+
+  color: #fff;
+
+  border: 0;
+  border-radius: 5px;
+
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

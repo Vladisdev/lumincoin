@@ -1,0 +1,18 @@
+@import '@/scss/mixins';
+@import '@/scss/variables';
+
+.btn {
+  @include btnStyle(15px, 12px 16px); 
+}
+
+.primary {
+  background-color: $primaryButtonBg;
+}
+
+.error {
+  background-color: $errorButtonBg;
+}
+
+.success {
+  background-color: $successButtonBg;
+}
