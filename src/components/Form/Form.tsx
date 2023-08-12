@@ -23,7 +23,7 @@ export const Form = ({ inputs }: FormProps) => {
     router.push('/main')
   }
 
-  const currentLinkText = () => {
+  const currentLinkContent = () => {
     return pathname === '/' ? (
       <>
         <span>Ещё нет аккаунта?</span>
@@ -55,7 +55,7 @@ export const Form = ({ inputs }: FormProps) => {
         </div>
       ))}
       <Button text='Войти' buttonVariant='primary' />
-      <div className={styles.form__link}>{currentLinkText()}</div>
+      <div className={styles.form__link}>{currentLinkContent()}</div>
     </form>
   )
 }
