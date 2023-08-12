@@ -6,7 +6,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { FormEvent } from 'react'
 import { Button } from '../UI/Button/Button'
 import { Input } from '../UI/Input/Input'
-import { InputIcon } from '../UI/InputIcon/InputIcon'
+import { InputIcon } from '../UI/InputIcons/InputIcons'
 import styles from './Form.module.scss'
 
 interface FormProps {
