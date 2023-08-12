@@ -1,9 +1,10 @@
 import { Form } from '@/components/Form/Form'
 import { FormTitle } from '@/components/UI/FormTitle/FormTitle'
-import Image from 'next/image'
+import { Logo } from '@/components/UI/Logo/Logo'
+import { InputType } from '@/types'
 import styles from './page.module.scss'
 
-const inputs = [
+const inputs: InputType[] = [
   {
     id: 1,
     type: 'email',
@@ -30,9 +31,7 @@ export default function Home() {
   return (
     <div className={styles.login}>
       <div className={`container ${styles.login__container}`}>
-        <div className={styles.login__logo}>
-          <Image src='/img/logo.png' alt='Lumincoin' fill quality={100} />
-        </div>
+        <Logo width={171} height={70} />
         <FormTitle text='Вход' />
         <Form inputs={inputs} />
       </div>

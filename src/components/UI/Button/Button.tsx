@@ -6,7 +6,7 @@ import styles from './Button.module.scss'
 interface ButtonProps {
   text: string
   buttonVariant: 'primary' | 'error' | 'success'
-  onClick: (e: MouseEvent) => void
+  onClick?: (e: MouseEvent) => void
 }
 
 const variants = {

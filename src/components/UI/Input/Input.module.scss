@@ -20,13 +20,27 @@
     color: #6c757d;
     font-size: 15px;
   }
-
-  &:-ms-input-placeholder {
+  k &:-ms-input-placeholder {
     color: #6c757d;
     font-size: 15px;
   }
 
   &::-ms-input-placeholder {
+    color: #6c757d;
+    font-size: 15px;
+  }
+
+  &::-webkit-input-placeholder {
+    color: #6c757d;
+    font-size: 15px;
+  }
+
+  &::-moz-placeholder {
+    color: #6c757d;
+    font-size: 15px;
+  }
+
+  &:-ms-input-placeholder {
     color: #6c757d;
     font-size: 15px;
   }
