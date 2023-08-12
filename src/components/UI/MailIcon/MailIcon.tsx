@@ -7,7 +7,7 @@ export const MailIcon = () => {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <g clip-path='url(#clip0_15_207)'>
+      <g clipPath='url(#clip0_15_207)'>
         <path
           d='M0 4C0 1.79086 1.79086 0 4 0H38V38H4C1.79086 38 0 36.2091 0 34V4Z'
           fill='#E9ECEF'

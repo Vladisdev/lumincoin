@@ -17,7 +17,7 @@ export const Form = ({ inputs }: FormProps) => {
   const router = useRouter()
   const pathname = usePathname()
 
-  const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     router.push('/main')
@@ -38,7 +38,7 @@ export const Form = ({ inputs }: FormProps) => {
   }
 
   return (
-    <form className={styles.form} onSubmit={() => handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       {inputs.map(input => (
         <div key={input.id} className={styles.form__item}>
           <Input
