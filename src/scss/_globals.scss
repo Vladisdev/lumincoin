@@ -8,6 +8,8 @@ body {
   flex-direction: column;
 
   font-weight: 500;
+
+  color: $blueTextColorDarken;
 }
 
 button,
@@ -18,6 +20,14 @@ input[type='checkbox'] {
 
 a {
   text-decoration: none;
+
+  &:active {
+    color: inherit;
+  }
+
+  &:visited {
+    color: inherit;
+  }
 }
 
 .container {

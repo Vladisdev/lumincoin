@@ -1,0 +1,21 @@
+@import '@/scss/variables';
+
+.balance {
+  display: flex;
+  align-items: center;
+
+  padding-bottom: 20px;
+
+  gap: 10px;
+
+  &__text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__value {
+    color: $primaryButtonBg;
+
+    font-size: 14px;
+  }
+}

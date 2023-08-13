@@ -9,14 +9,13 @@ interface LogoProps {
 
 export const Logo: FC<LogoProps> = ({ width, height }) => {
   return (
-    <div className={styles.logo}>
-      <Image
-        src='/img/logo.png'
-        alt='Lumincoin'
-        width={width}
-        height={height}
-        quality={100}
-      />
-    </div>
+    <Image
+      src='/img/logo.png'
+      alt='Lumincoin'
+      width={width}
+      height={height}
+      quality={100}
+      className={styles.logo}
+    />
   )
 }

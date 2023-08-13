@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { FormEvent } from 'react'
 import { Button } from '../UI/Button/Button'
+import { Icon } from '../UI/Icons/Icons'
 import { Input } from '../UI/Input/Input'
-import { InputIcon } from '../UI/InputIcons/InputIcons'
 import styles from './Form.module.scss'
 
 interface FormProps {
@@ -51,7 +51,7 @@ export const Form = ({ inputs }: FormProps) => {
               Запомнить меня
             </label>
           )}
-          <InputIcon name={input.iconName as string} />
+          <Icon name={input.iconName as string} />
         </div>
       ))}
       <Button text='Войти' buttonVariant='primary' />

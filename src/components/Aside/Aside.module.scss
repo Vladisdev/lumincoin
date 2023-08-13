@@ -1,0 +1,28 @@
+.aside {
+  padding: 40px 20px;
+
+  height: 100dvh;
+
+  border-right: 1px solid #d9d9d9;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #d9d9d9;
+
+    img {
+      margin-bottom: 0;
+    }
+  }
+}
