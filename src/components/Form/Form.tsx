@@ -20,14 +20,14 @@ export const Form = ({ inputs }: FormProps) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    router.push('/main')
+    router.push('main')
   }
 
   const currentLinkContent = () => {
     return pathname === '/' ? (
       <>
         <span>Ещё нет аккаунта?</span>
-        <Link href='/register'>Пройдите регистрацию</Link>
+        <Link href='register'>Пройдите регистрацию</Link>
       </>
     ) : (
       <>
