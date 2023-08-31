@@ -1,30 +1,33 @@
 'use client'
 
-import { InputType } from '@/types'
+import { FormValues, FormValuesBig, InputType } from '@/types'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { FormEvent } from 'react'
 import { Button } from '../UI/Button/Button'
 import { Icon } from '../UI/Icons/Icons'
 import { Input } from '../UI/Input/Input'
 import styles from './Form.module.scss'
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 interface FormProps {
   inputs: InputType[]
 }
 
 export const Form = ({ inputs }: FormProps) => {
-  const router = useRouter()
   const pathname = usePathname()
+  const router = useRouter()
+  const isMainPage = pathname === '/'
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    router.push('main')
+  const { register, handleSubmit, reset } = useForm<FormValues | FormValuesBig>({
+    defaultValues: {}
+  })
+  
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    console.log(data)
   }
 
   const currentLinkContent = () => {
-    return pathname === '/' ? (
+    return isMainPage ? (
       <>
         <span>Ещё нет аккаунта?</span>
         <Link href='register'>Пройдите регистрацию</Link>
@@ -38,17 +41,17 @@ export const Form = ({ inputs }: FormProps) => {
   }
 
   const renderInputs = (input: InputType) => {
-    const { type, placeholder, inputId, hasLabel, iconName } = input
+    const { type, placeholder, inputId, hasLabel, iconName, fieldName } = input
 
     return <>
-      <Input type={type} placeholder={placeholder} id={inputId}/>
+      <Input register={register} fieldName={fieldName} type={type} placeholder={placeholder} id={inputId}/>
       {hasLabel && <label className={styles.form__itemLabel} htmlFor={inputId}>Запомнить меня</label>}
       <Icon name={iconName as string}/>
     </>
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       {inputs.map(input => (
         <div key={input.id} className={styles.form__item}>
           {renderInputs(input)}

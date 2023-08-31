@@ -5,6 +5,7 @@ export type InputType = {
   inputId?: string
   hasLabel: boolean
   iconName?: string
+  fieldName: string
 }
 
 export type NavItemType = {
@@ -20,4 +21,14 @@ type subMenuItems = {
   id: number
   text: string
   linkHref: string
+}
+
+export interface FormValues {
+  email: string
+  password: string
+}
+
+export interface FormValuesBig extends FormValues {
+  name: string
+  repPassword: string
 }

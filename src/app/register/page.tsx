@@ -11,6 +11,7 @@ const inputs: InputType[] = [
     placeholder: 'ФИО',
     hasLabel: false,
     iconName: 'name',
+    fieldName: 'name'
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const inputs: InputType[] = [
     placeholder: 'Электронная почта',
     hasLabel: false,
     iconName: 'mail',
+    fieldName: 'email'
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const inputs: InputType[] = [
     placeholder: 'Пароль',
     hasLabel: false,
     iconName: 'password',
+    fieldName: 'password'
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const inputs: InputType[] = [
     placeholder: 'Подтверждение пароля',
     hasLabel: false,
     iconName: 'password',
+    fieldName: 'repPassword'
   },
 ]
 
@@ -39,9 +43,9 @@ const page = () => {
   return (
     <div className={styles.register}>
       <div className={`container ${styles.register__container}`}>
-        <Logo width={171} height={70} />
-        <FormTitle text='Создайте аккаунт' />
-        <Form inputs={inputs} />
+        <Logo width={171} height={70}/>
+        <FormTitle text='Создайте аккаунт'/>
+        <Form inputs={inputs}/>
       </div>
     </div>
   )
