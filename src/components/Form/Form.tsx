@@ -37,24 +37,24 @@ export const Form = ({ inputs }: FormProps) => {
     )
   }
 
+  const renderInputs = (input: InputType) => {
+    const { type, placeholder, inputId, hasLabel, iconName } = input
+
+    return <>
+      <Input type={type} placeholder={placeholder} id={inputId}/>
+      {hasLabel && <label className={styles.form__itemLabel} htmlFor={inputId}>Запомнить меня</label>}
+      <Icon name={iconName as string}/>
+    </>
+  }
+
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       {inputs.map(input => (
         <div key={input.id} className={styles.form__item}>
-          <Input
-            type={input.type}
-            placeholder={input.placeholder}
-            id={input.inputId}
-          />
-          {input.hasLabel && (
-            <label className={styles.form__itemLabel} htmlFor={input.inputId}>
-              Запомнить меня
-            </label>
-          )}
-          <Icon name={input.iconName as string} />
+          {renderInputs(input)}
         </div>
       ))}
-      <Button text='Войти' buttonVariant='primary' />
+      <Button text='Войти' buttonVariant='primary'/>
       <div className={styles.form__link}>{currentLinkContent()}</div>
     </form>
   )
