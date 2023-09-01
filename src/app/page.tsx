@@ -11,6 +11,7 @@ const inputs: InputType[] = [
     placeholder: 'Электронная почта',
     hasLabel: false,
     iconName: 'mail',
+    fieldName: 'email'
   },
   {
     id: 2,
@@ -18,22 +19,24 @@ const inputs: InputType[] = [
     placeholder: 'Пароль',
     hasLabel: false,
     iconName: 'password',
+    fieldName: 'password'
   },
   {
     id: 3,
     type: 'checkbox',
     inputId: 'rememberMe',
     hasLabel: true,
-  },
+    fieldName: 'rememberMe'
+  }
 ]
 
 export default function Home() {
   return (
-    <div className={styles.login}>
-      <div className={`container ${styles.login__container}`}>
-        <Logo width={171} height={70} />
-        <FormTitle text='Вход' />
-        <Form inputs={inputs} />
+    <div className={ styles.login }>
+      <div className={ `container ${ styles.login__container }` }>
+        <Logo width={ 171 } height={ 70 }/>
+        <FormTitle text="Вход"/>
+        <Form inputs={ inputs }/>
       </div>
     </div>
   )
