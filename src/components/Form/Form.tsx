@@ -3,7 +3,7 @@
 import { FormValues, FormValuesBig, InputType } from '@/types'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '../UI/Button/Button'
 import { Icon } from '../UI/Icons/Icons'
 import { Input } from '../UI/Input/Input'
@@ -17,16 +17,20 @@ export const Form = ({ inputs }: FormProps) => {
   const pathname = usePathname()
   const router = useRouter()
   const isMainPage = pathname === '/'
-
   const { register, handleSubmit, reset } = useForm<FormValues | FormValuesBig>(
     {
       defaultValues: {},
     }
   )
 
-  const onSubmit: SubmitHandler<FieldValues> = data => {
-    console.log(data.password)
-    reset()
+  const onSubmit: SubmitHandler<FormValues | FormValuesBig> = data => {
+    if ('name' in data) {
+      const { email, password, repPassword } = data
+
+      if (password !== repPassword) {
+        return alert('Пароли не совпадают\nПроверьте введенные вами значения')
+      }
+    }
   }
 
   const currentLinkContent = () => {
