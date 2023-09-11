@@ -3,7 +3,7 @@
 import { NavItemType } from '@/types'
 import Link from 'next/link'
 import { useState } from 'react'
-import { Icons } from '../UI/Icons/Icons'
+import { Icon } from '../UI/Icons/Icons'
 import styles from './Navigation.module.scss'
 
 const navItems: NavItemType[] = [
@@ -81,7 +81,7 @@ export const Navigation = () => {
               href={item.linkHref ? item.linkHref : ''}
               className={styles.nav__itemInfo}
             >
-              <Icons name={item.iconName ? item.iconName : ''} />
+              <Icon name={item.iconName ? item.iconName : ''} />
               <p>{item.text}</p>
             </Link>
           </li>
