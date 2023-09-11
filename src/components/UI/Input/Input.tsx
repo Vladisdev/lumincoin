@@ -26,8 +26,8 @@ export const Input: FC<InputProps> = ({
       type={type}
       placeholder={placeholder}
       id={id}
-      {...(register(fieldName),
-      { required: type !== 'checkbox' ? true : false })}
+      {...register(fieldName)}
+      required={type !== 'checkbox' ? true : false}
     />
   )
 }
