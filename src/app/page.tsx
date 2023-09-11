@@ -33,12 +33,14 @@ const inputs: InputType[] = [
 
 export default function Home() {
   return (
-    <div className={styles.login}>
-      <div className={`container ${styles.login__container}`}>
-        <Logo width={171} height={70} />
-        <FormTitle text='Вход' />
-        <Form inputs={inputs} />
+    <>
+      <div className={styles.login}>
+        <div className={`container ${styles.login__container}`}>
+          <Logo width={171} height={70} />
+          <FormTitle text='Вход' />
+          <Form inputs={inputs} />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
