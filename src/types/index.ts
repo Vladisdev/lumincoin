@@ -26,6 +26,7 @@ type subMenuItems = {
 export interface FormValues {
   email: string
   password: string
+  rememberMe: boolean
 }
 
 export interface FormValuesBig extends FormValues {

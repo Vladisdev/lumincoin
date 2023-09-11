@@ -25,7 +25,7 @@ export const Form = ({ inputs }: FormProps) => {
   )
 
   const onSubmit: SubmitHandler<FieldValues> = data => {
-    console.log(data)
+    console.log(data.password)
     reset()
   }
 
