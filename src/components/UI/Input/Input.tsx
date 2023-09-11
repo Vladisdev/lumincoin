@@ -9,7 +9,7 @@ interface InputProps {
   type: string
   placeholder?: string
   id?: string
-  fieldName: string
+  fieldName: 'name' | 'email' | 'password' | 'repPassword'
   register: UseFormRegister<FormValues | FormValuesBig>
 }
 
@@ -26,7 +26,8 @@ export const Input: FC<InputProps> = ({
       type={type}
       placeholder={placeholder}
       id={id}
-      {...register(fieldName)}
+      {...(register(fieldName),
+      { required: type !== 'checkbox' ? true : false })}
     />
   )
 }

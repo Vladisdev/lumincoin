@@ -26,6 +26,7 @@ export const Form = ({ inputs }: FormProps) => {
 
   const onSubmit: SubmitHandler<FieldValues> = data => {
     console.log(data)
+    reset()
   }
 
   const currentLinkContent = () => {
@@ -49,7 +50,7 @@ export const Form = ({ inputs }: FormProps) => {
       <>
         <Input
           register={register}
-          fieldName={fieldName}
+          fieldName={fieldName as 'name' | 'email' | 'password' | 'repPassword'}
           type={type}
           placeholder={placeholder}
           id={inputId}
