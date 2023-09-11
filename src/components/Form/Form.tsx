@@ -47,6 +47,7 @@ export const Form = ({ inputs }: FormProps) => {
         return alert('Пароли не совпадают\nПроверьте введенные вами значения')
       }
 
+      localStorage.setItem('name', name)
       localStorage.setItem('email', email)
       localStorage.setItem('password', password)
       dispatch(createUser({ name, email }))
