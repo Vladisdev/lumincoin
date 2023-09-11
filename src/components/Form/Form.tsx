@@ -1,9 +1,12 @@
 'use client'
 
+import { createUser } from '@/redux/slices/userSlice'
 import { FormValues, FormValuesBig, InputType } from '@/types'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { Button } from '../UI/Button/Button'
 import { Icon } from '../UI/Icons/Icons'
 import { Input } from '../UI/Input/Input'
@@ -16,6 +19,7 @@ interface FormProps {
 export const Form = ({ inputs }: FormProps) => {
   const pathname = usePathname()
   const router = useRouter()
+  const dispatch = useDispatch()
   const isMainPage = pathname === '/'
   const { register, handleSubmit, reset } = useForm<FormValues | FormValuesBig>(
     {
@@ -23,13 +27,43 @@ export const Form = ({ inputs }: FormProps) => {
     }
   )
 
+  useEffect(() => {
+    const rememberMeValue = localStorage.getItem('rememberMe')
+    if (isMainPage && rememberMeValue === 'true') {
+      return router.push('/main')
+    }
+
+    if (isMainPage && !localStorage.getItem('password')) {
+      router.push('/register')
+    }
+  }, [isMainPage, router])
+
   const onSubmit: SubmitHandler<FormValues | FormValuesBig> = data => {
     if ('name' in data) {
-      const { email, password, repPassword } = data
+      const { password, repPassword, name, email, rememberMe } = data
 
       if (password !== repPassword) {
         return alert('Пароли не совпадают\nПроверьте введенные вами значения')
       }
+
+      localStorage.setItem('email', email)
+      localStorage.setItem('password', password)
+      dispatch(createUser({ name, email }))
+
+      reset()
+
+      return router.push('/main')
+    }
+
+    const storageEmail = localStorage.getItem('email')
+    const storagePassword = localStorage.getItem('password')
+
+    if (data.email === storageEmail && data.password === storagePassword) {
+      localStorage.setItem('rememberMe', String(data.rememberMe))
+      reset()
+      router.push('/main')
+    } else {
+      alert('Проверьте введенные вами значения')
     }
   }
 
