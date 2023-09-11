@@ -4,7 +4,7 @@ import { Icon } from '../UI/Icons/Icons'
 import styles from './User.module.scss'
 
 export const User = () => {
-  const userName = localStorage.getItem('name')
+  const userName = localStorage && localStorage.getItem('name')
 
   return (
     <div className={styles.user}>
