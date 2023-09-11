@@ -29,6 +29,7 @@ export const Form = ({ inputs }: FormProps) => {
 
   useEffect(() => {
     const rememberMeValue = localStorage.getItem('rememberMe')
+
     if (isMainPage && rememberMeValue === 'true') {
       return router.push('/main')
     }
@@ -40,7 +41,7 @@ export const Form = ({ inputs }: FormProps) => {
 
   const onSubmit: SubmitHandler<FormValues | FormValuesBig> = data => {
     if ('name' in data) {
-      const { password, repPassword, name, email, rememberMe } = data
+      const { password, repPassword, name, email } = data
 
       if (password !== repPassword) {
         return alert('Пароли не совпадают\nПроверьте введенные вами значения')
