@@ -11,6 +11,7 @@ const inputs: InputType[] = [
     placeholder: 'Электронная почта',
     hasLabel: false,
     iconName: 'mail',
+    fieldName: 'email',
   },
   {
     id: 2,
@@ -18,12 +19,14 @@ const inputs: InputType[] = [
     placeholder: 'Пароль',
     hasLabel: false,
     iconName: 'password',
+    fieldName: 'password',
   },
   {
     id: 3,
     type: 'checkbox',
     inputId: 'rememberMe',
     hasLabel: true,
+    fieldName: 'rememberMe',
   },
 ]
 

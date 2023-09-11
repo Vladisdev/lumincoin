@@ -3,11 +3,11 @@
 import { FormValues, FormValuesBig, InputType } from '@/types'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '../UI/Button/Button'
 import { Icon } from '../UI/Icons/Icons'
 import { Input } from '../UI/Input/Input'
 import styles from './Form.module.scss'
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 interface FormProps {
   inputs: InputType[]
@@ -18,11 +18,13 @@ export const Form = ({ inputs }: FormProps) => {
   const router = useRouter()
   const isMainPage = pathname === '/'
 
-  const { register, handleSubmit, reset } = useForm<FormValues | FormValuesBig>({
-    defaultValues: {}
-  })
-  
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const { register, handleSubmit, reset } = useForm<FormValues | FormValuesBig>(
+    {
+      defaultValues: {},
+    }
+  )
+
+  const onSubmit: SubmitHandler<FieldValues> = data => {
     console.log(data)
   }
 
@@ -43,11 +45,23 @@ export const Form = ({ inputs }: FormProps) => {
   const renderInputs = (input: InputType) => {
     const { type, placeholder, inputId, hasLabel, iconName, fieldName } = input
 
-    return <>
-      <Input register={register} fieldName={fieldName} type={type} placeholder={placeholder} id={inputId}/>
-      {hasLabel && <label className={styles.form__itemLabel} htmlFor={inputId}>Запомнить меня</label>}
-      <Icon name={iconName as string}/>
-    </>
+    return (
+      <>
+        <Input
+          register={register}
+          fieldName={fieldName}
+          type={type}
+          placeholder={placeholder}
+          id={inputId}
+        />
+        {hasLabel && (
+          <label className={styles.form__itemLabel} htmlFor={inputId}>
+            Запомнить меня
+          </label>
+        )}
+        <Icon name={iconName as string} />
+      </>
+    )
   }
 
   return (
@@ -57,7 +71,7 @@ export const Form = ({ inputs }: FormProps) => {
           {renderInputs(input)}
         </div>
       ))}
-      <Button text='Войти' buttonVariant='primary'/>
+      <Button text='Войти' buttonVariant='primary' />
       <div className={styles.form__link}>{currentLinkContent()}</div>
     </form>
   )
