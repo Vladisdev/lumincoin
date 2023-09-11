@@ -17,6 +17,12 @@ export const userSlice = createSlice({
     createUser: (state, action: PayloadAction<string>) => {
       state.name = action.payload
     },
+    getUserData: state => {
+      return {
+        name: state.name,
+        balance: state.balance,
+      }
+    },
   },
 })
 
